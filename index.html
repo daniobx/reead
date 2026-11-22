@@ -3,190 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>reedsfit</title>
-<meta name="description" content="">
+<title>redste</title>
 
 <style>
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background: #090d18;
-  color: white;
+  margin: 0;
   font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
 }
+
 header {
-  background: #111827;
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #263044;
-}
-.logo {
-  font-size: 27px;
-  font-weight: bold;
-  color: #ff3158;
-}
-.logo span { color: white; }
-nav a {
+  background: #111;
   color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 14px;
-}
-.hero {
+  padding: 20px;
   text-align: center;
-  padding: 55px 15px 30px;
+  font-size: 25px;
+  font-weight: bold;
 }
-.hero h1 {
-  font-size: 34px;
-  margin-bottom: 12px;
-}
-.hero p {
-  color: #aab3c5;
-  font-size: 15px;
-}
+
 .container {
-  max-width: 950px;
-  margin: 25px auto;
-  padding: 0 15px;
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 20px;
 }
-.video-box {
+
+.player {
   background: #000;
-  border-radius: 14px;
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #29344a;
-  box-shadow: 0 10px 35px #0008;
 }
+
 video {
   width: 100%;
   display: block;
-  aspect-ratio: 16/9;
-  background: black;
+  max-height: 480px;
 }
-.video-info {
-  background: #151d2d;
-  padding: 22px;
-  border-radius: 0 0 14px 14px;
-}
-.video-info h2 {
-  font-size: 23px;
-  margin-bottom: 10px;
-}
-.video-info p {
-  color: #aab3c5;
-  font-size: 14px;
-  line-height: 1.6;
-}
-.buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 13px 24px;
-  border-radius: 7px;
-  font-weight: bold;
-  font-size: 14px;
-  text-align: center;
-}
-.watch {
-  background: #ff3158;
-  color: white;
-}
-.download {
-  background: #26344c;
-  color: white;
-  border: 1px solid #40516e;
-}
-.btn:hover { opacity: .85; }
-.notice {
-  margin-top: 25px;
-  background: #121c2d;
-  padding: 16px;
-  border-left: 4px solid #ff3158;
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 20px 0 10px;
+  border: 1px solid #ccc;
   border-radius: 6px;
-  color: #b9c2d2;
-  font-size: 13px;
-  line-height: 1.6;
 }
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #e50914;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #b80710;
+}
+
+.download {
+  background: #222;
+}
+
 footer {
   text-align: center;
-  padding: 30px 15px;
-  margin-top: 50px;
-  background: #111827;
-  color: #8994a8;
+  padding: 20px;
+  color: #777;
   font-size: 13px;
-}
-@media(max-width:600px) {
-  .hero h1 { font-size: 26px; }
-  header { padding: 16px 5%; }
-  nav a { margin-left: 10px; font-size: 12px; }
-  .buttons .btn { flex: 1; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">Boroplay<span>.</span></div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#video">Watch</a>
-  </nav>
-</header>
+<header>VIDEY PLAYER</header>
 
-<section class="hero">
-  <h1></h1>
-  <p></p>
-</section>
+<div class="container">
 
-<main class="container" id="video">
-
-  <div class="video-box">
-    <video id="videyPlayer" controls playsinline preload="metadata">
-      <source src="https://cdn2.videy.co/DjWfPz3P1.mp4" type="video/mp4">
-      
+  <div class="player">
+    <video id="video" controls playsinline>
+      <source src="" type="video/mp4">
+      Browser tidak mendukung video.
     </video>
   </div>
 
-  <div class="video-info">
-    <h2>Watch & Download Video</h2>
-    <p>
-      
-    </p>
+  <input
+    type="url"
+    id="videoUrl"
+    placeholder="https://cdn2.videy.co/DjWfPz3P1.mp4"
+  >
 
-    <div class="buttons">
-      <a href="https://t.co/dptXIgkv8t" class="btn watch"
-         onclick="https://t.co/dptXIgkv8t">
-         ▶ WATCH NOW
-      </a>
+  <button onclick="playVideo()">PLAY VIDEO</button>
 
-      <a href="https://t.co/dptXIgkv8t"
-         class="btn download"
-         download>
-         ↓ DOWNLOAD VIDEO
-      </a>
-    </div>
-  </div>
+  <button class="download" onclick="downloadVideo()">
+    DOWNLOAD
+  </button>
 
-  <div class="notice">
-    <strong>Information:</strong>
-    
-  </div>
-
-</main>
+</div>
 
 <footer>
-  © Bones
+  © 2026 Video plays
 </footer>
+
+<script>
+function playVideo() {
+  const url = document.getElementById("videoUrl").value.trim();
+  const video = document.getElementById("video");
+
+  if (!url) {
+    alert("https://cdn2.videy.co/DjWfPz3P1.mp4");
+    return;
+  }
+
+  video.src = url;
+  video.load();
+  video.play();
+}
+
+function downloadVideo() {
+  const url = document.getElementById("videoUrl").value.trim();
+
+  if (!url) {
+    alert("https://cdn2.videy.co/DjWfPz3P1.mp4);
+    return;
+  }
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "https://t.co/dptXIgkv8t";
+  link.target = "_blank";
+  link.click();
+}
+</script>
 
 </body>
 </html>
